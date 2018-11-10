@@ -10,7 +10,7 @@ import Foundation
 
 class Constants {
     enum URL {
-        static let baseUrl = "http://137.74.114.219:44093"
+        static let baseUrl = "http://95.213.28.151:44093"
 
         static let calculatePath = baseUrl + "/path/calc"
         static let clearPath = baseUrl + "/path/reset"

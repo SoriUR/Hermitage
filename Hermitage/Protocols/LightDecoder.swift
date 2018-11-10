@@ -31,7 +31,7 @@ extension LightDecoder {
                 return nil
         }
 
-        return Location(zone: zone, room: room, device: device)
+        return Location(zone: zone, room: 200+room, device: device)
     }
 
     func decodeBytes(_ bytes: [UInt8]) -> String? {

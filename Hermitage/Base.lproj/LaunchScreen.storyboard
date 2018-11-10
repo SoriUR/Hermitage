@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ermitazh-logo-main" translatesAutoresizingMaskIntoConstraints="NO" id="qGL-vJ-rL5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hermitage-logo" translatesAutoresizingMaskIntoConstraints="NO" id="qGL-vJ-rL5">
                                 <rect key="frame" x="0.0" y="10" width="375" height="667"/>
                             </imageView>
                         </subviews>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ermitazh-logo-main" width="1024" height="1024"/>
+        <image name="hermitage-logo" width="421.36624145507812" height="421.36624145507812"/>
     </resources>
 </document>

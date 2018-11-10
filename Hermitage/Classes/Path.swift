@@ -8,6 +8,11 @@
 
 import Foundation
 
-struct Path: Codable {
-    
+struct ServerResponseJSON: Codable {
+    let color: String
+    let destDevice: String
+    let length: Int
+    let optimal: Bool
+    let pathId: String
+    let devices: [String]
 }

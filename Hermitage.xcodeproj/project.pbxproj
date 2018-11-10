@@ -32,6 +32,9 @@
 		BFF89CD52197404900BE86C3 /* CALayer+roundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CD42197404900BE86C3 /* CALayer+roundedCorners.swift */; };
 		BFF89CD72197497900BE86C3 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CD62197497900BE86C3 /* State.swift */; };
 		BFF89CDC21974AF000BE86C3 /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CDB21974AF000BE86C3 /* Buffer.swift */; };
+		BFF89CE2219760DF00BE86C3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CE0219760DF00BE86C3 /* MapViewController.swift */; };
+		BFF89CE3219760DF00BE86C3 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF89CE1219760DF00BE86C3 /* MapViewController.xib */; };
+		BFF89CE6219772DA00BE86C3 /* UIViewController+showActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CE5219772DA00BE86C3 /* UIViewController+showActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +67,9 @@
 		BFF89CD42197404900BE86C3 /* CALayer+roundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+roundedCorners.swift"; sourceTree = "<group>"; };
 		BFF89CD62197497900BE86C3 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		BFF89CDB21974AF000BE86C3 /* Buffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buffer.swift; sourceTree = "<group>"; };
+		BFF89CE0219760DF00BE86C3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		BFF89CE1219760DF00BE86C3 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		BFF89CE5219772DA00BE86C3 /* UIViewController+showActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showActivity.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,7 @@
 				BFF89CAE2196FB4A00BE86C3 /* Root */,
 				BFF89CA12196FACB00BE86C3 /* Profile */,
 				BFF89CA02196FAC600BE86C3 /* StartNavigation */,
+				BFF89CDD2197608300BE86C3 /* Map */,
 				BFF89C9F2196FAC000BE86C3 /* Chat */,
 			);
 			path = Screens;
@@ -182,6 +189,7 @@
 		BFF89CB5219706A400BE86C3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BFF89CE4219772CC00BE86C3 /* UIViewController */,
 				BFF89CD32197403600BE86C3 /* CALayer */,
 				BFF89CB6219706B500BE86C3 /* StringProtocol */,
 			);
@@ -239,6 +247,23 @@
 				BFF89CD42197404900BE86C3 /* CALayer+roundedCorners.swift */,
 			);
 			path = CALayer;
+			sourceTree = "<group>";
+		};
+		BFF89CDD2197608300BE86C3 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				BFF89CE0219760DF00BE86C3 /* MapViewController.swift */,
+				BFF89CE1219760DF00BE86C3 /* MapViewController.xib */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		BFF89CE4219772CC00BE86C3 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BFF89CE5219772DA00BE86C3 /* UIViewController+showActivity.swift */,
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +330,7 @@
 				BFF89CA52196FAFF00BE86C3 /* StartNavigationViewController.xib in Resources */,
 				BF9304252195AEA7009E3383 /* LaunchScreen.storyboard in Resources */,
 				BFF89CA92196FB0D00BE86C3 /* CharViewController.xib in Resources */,
+				BFF89CE3219760DF00BE86C3 /* MapViewController.xib in Resources */,
 				BFF89CB22196FB5F00BE86C3 /* RootViewController.xib in Resources */,
 				BF9304222195AEA7009E3383 /* Assets.xcassets in Resources */,
 			);
@@ -338,10 +364,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hermitage/Pods-Hermitage-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulsator.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,12 +391,14 @@
 				BFF89CB8219706C900BE86C3 /* StringProtocol+indexOf.swift in Sources */,
 				BFF89CC021970D2C00BE86C3 /* NetworkManager.swift in Sources */,
 				BFF89CA82196FB0D00BE86C3 /* ChatViewController.swift in Sources */,
+				BFF89CE2219760DF00BE86C3 /* MapViewController.swift in Sources */,
 				BFF89CA42196FAFF00BE86C3 /* StartNavigationViewController.swift in Sources */,
 				BFF89CCF219734F600BE86C3 /* Location.swift in Sources */,
 				BFF89CB12196FB5F00BE86C3 /* RootViewController.swift in Sources */,
 				BFF89CBD2197076100BE86C3 /* LightDecoder.swift in Sources */,
 				BFF89CAC2196FB2A00BE86C3 /* ProfileViewController.swift in Sources */,
 				BF93041B2195AEA5009E3383 /* AppDelegate.swift in Sources */,
+				BFF89CE6219772DA00BE86C3 /* UIViewController+showActivity.swift in Sources */,
 				BFF89CD72197497900BE86C3 /* State.swift in Sources */,
 				BFF89CB42197067A00BE86C3 /* StartNavigationModel.swift in Sources */,
 				BFF89CC721971DD600BE86C3 /* Path.swift in Sources */,

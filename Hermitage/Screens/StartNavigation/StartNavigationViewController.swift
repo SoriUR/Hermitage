@@ -9,19 +9,13 @@
 import UIKit
 import AVKit
 import Pulsator
+import Cartography
 
 class StartNavigationViewController: UIViewController {
 
     // MARK: - Outlets and Actions
 
     @IBOutlet private weak var pulsatorCenter: UIView!
-    @IBOutlet private weak var calculatePathBtn: RoundedButton!
-    @IBOutlet private weak var roomLabel: UILabel!
-    @IBOutlet private weak var textLabel: UILabel!
-
-    @IBAction private func calculatePath(_ sender: UIButton) {
-        print("show new screen")
-    }
 
     private lazy var model: StartNavigationModel =  {
         let model = StartNavigationModel()
@@ -70,41 +64,41 @@ class StartNavigationViewController: UIViewController {
         self.title = "Navigation"
 
         pulsatorCenter.layer.addSublayer(pulsator)
-        pulsator.start()
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         startSession()
+        pulsator.start()
     }
 
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
         stopSession()
+        pulsator.stop()
     }
 
     // MARK: - Private Functions
 
     private func handleLocation(_ location: Location) {
-        print("current room is \(location.room)")
+
         DispatchQueue.main.async {
-            self.pulsator.stop()
-            self.calculatePathBtn.isHidden = false
-            self.roomLabel.isHidden = false
-            self.textLabel.isHidden = false
-            self.roomLabel.text = String(location.room)
+            let mapVC = MapViewController()
+            mapVC.location = location
+            self.navigationController?.pushViewController(mapVC, animated: true)
         }
     }
-
 }
 
 extension StartNavigationViewController: CameraController {
 
     func startSession() {
         guard let device = device, let input = try? AVCaptureDeviceInput(device: device) else {
-            //todo: show device error
+            assertionFailure("Capture Device Error")
             return
         }
         captureSession.addInput(input)
@@ -159,6 +153,7 @@ extension StartNavigationViewController: AVCaptureVideoDataOutputSampleBufferDel
 }
 
 extension StartNavigationViewController: LightDecoderDelegate {
+
     func didRecognizeLocation(_ location: Location) {
         stopSession()
         handleLocation(location)

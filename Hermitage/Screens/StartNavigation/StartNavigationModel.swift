@@ -28,5 +28,6 @@ class StartNavigationModel: LightDecoder {
             return
         }
         delegate?.didRecognizeLocation(location)
+        buffer.flush()
     }
 }
