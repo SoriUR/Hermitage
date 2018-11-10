@@ -11,7 +11,7 @@ import AVKit
 
 class NavigationViewController: UIViewController {
 
-    private lazy var decoder: LightDecoder = NavigationModel()
+    private lazy var model = NavigationModel()
     private lazy var captureSession = AVCaptureSession()
 
     private lazy var device: AVCaptureDevice? = {
@@ -39,6 +39,7 @@ class NavigationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        model.convertBinaryString("")
 
         view.backgroundColor = .white
         self.title = "Navigation"
@@ -112,8 +113,8 @@ extension NavigationViewController: AVCaptureVideoDataOutputSampleBufferDelegate
             bytes.append(luma)
         }
 
-        if let result = decoder.decode(bytes: bytes) {
-            print(result)
+        if let binaryString = model.decodeBytes(bytes) {
+            model.convertBinaryString(binaryString)
         }
 
         CVPixelBufferUnlockBaseAddress(pixelBuffer, .readOnly)

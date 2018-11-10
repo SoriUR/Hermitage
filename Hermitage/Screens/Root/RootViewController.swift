@@ -19,7 +19,9 @@ class RootViewController: UITabBarController {
             "startDeviceId": "7_224_1"
         ]
         NetworkManager.shared.request(Constants.URL.calculatePath,
-                                      parameters: params)
+                                      parameters: params) { _, _ in
+
+        }
 
         let chatVC = ChatViewController()
         chatVC.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 0)

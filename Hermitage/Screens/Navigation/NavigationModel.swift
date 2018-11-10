@@ -8,7 +8,27 @@
 
 import Foundation
 
-class NavigationModel: LightDecoder {
+class NavigationModel {
+
+
+    /// Creates new string instanse of custom type from binary string
+    ///
+    /// - Parameter string: string containing just "1" and "0" with length of 12. Were first 3 digits are dedicated to zone, folowwing 6 digits are dedicated to room and last 3 digits dedecated to device.
+    /// - Returns: string of type "zone_room_device". Or nil if smth goes wrong
+    func convertBinaryString(_ string: String) -> String? {
+        guard string.count == 12 else {
+            return nil
+        }
+        let zoneIndex = string.index(string.startIndex, offsetBy: 3)
+        let roomIndex = string.index(string.startIndex, offsetBy: 9)
+        guard let zone = String(string[..<zoneIndex]).toDecimal,
+            let room = String(string[zoneIndex..<roomIndex]).toDecimal,
+            let device = String(string[roomIndex..<string.endIndex]).toDecimal else {
+                return nil
+        }
+
+        return "\(zone)_\(room)_\(device)"
+    }
 
     private enum State: String {
         case zero = "0"
@@ -25,7 +45,12 @@ class NavigationModel: LightDecoder {
         }
     }
 
-    func decode(bytes: [UInt8]) -> String? {
+
+}
+
+extension NavigationModel: LightDecoder {
+
+    func decodeBytes(_ bytes: [UInt8]) -> String? {
         var resultBinary: String = ""
         State.border = Float(bytes.max()! - bytes.min()!) / 2
 
@@ -62,10 +87,10 @@ class NavigationModel: LightDecoder {
             resultBinary.append(lastState.rawValue)
         }
 
-        return decodeBynaryString(resultBinary)
+        return decodeBinaryString(resultBinary)
     }
 
-    private func decodeBynaryString(_ string: String) -> String? {
+    private func decodeBinaryString(_ string: String) -> String? {
         let indexes = string.indexes(of: "0110")
         guard !indexes.isEmpty else {
             return nil
@@ -92,11 +117,8 @@ class NavigationModel: LightDecoder {
 
     private func stringIsValid(_ string: String) -> Bool {
         guard string.count == 13 else { return false }
-        var oddCount = 0
-        for (index, char) in string.enumerated() {
-            if char == "1" {
-                oddCount += 1
-            }
+        let oddCount = string.reduce(0) { // check
+            return $0 + ($1 == "1" ? 1 : 0)
         }
         guard oddCount % 2 == 0 else {
             return false

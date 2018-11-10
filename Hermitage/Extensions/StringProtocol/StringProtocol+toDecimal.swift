@@ -1,5 +1,5 @@
 //
-//  LightDecoder.swift
+//  StringProtocol.swift
 //  Hermitage
 //
 //  Created by Юрий Сорокин on 10/11/2018.
@@ -8,6 +8,8 @@
 
 import Foundation
 
-protocol LightDecoder: class {
-    func decodeBytes(_ bytes: [UInt8]) -> String?
+extension String {
+    var toDecimal: Int? {
+        return Int(self, radix: 2)
+    }
 }
