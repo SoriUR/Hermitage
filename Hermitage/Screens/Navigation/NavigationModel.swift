@@ -7,11 +7,10 @@
 //
 
 import Foundation
+
 class NavigationModel: LightDecoder {
 
-    var isDecoding = false
-
-    enum State: String {
+    private enum State: String {
         case zero = "0"
         case one = "1"
 
@@ -66,7 +65,7 @@ class NavigationModel: LightDecoder {
         return decodeBynaryString(resultBinary)
     }
 
-    func decodeBynaryString(_ string: String) -> String? {
+    private func decodeBynaryString(_ string: String) -> String? {
         let indexes = string.indexes(of: "0110")
         guard !indexes.isEmpty else {
             return nil
@@ -91,7 +90,7 @@ class NavigationModel: LightDecoder {
         return nil
     }
 
-    func stringIsValid(_ string: String) -> Bool {
+    private func stringIsValid(_ string: String) -> Bool {
         guard string.count == 13 else { return false }
         var oddCount = 0
         for (index, char) in string.enumerated() {
@@ -105,7 +104,7 @@ class NavigationModel: LightDecoder {
         return true
     }
 
-    func decodeWidths(from bytes: [UInt8]) -> (zeroWidth: Int, oneWidth: Int) {
+    private func decodeWidths(from bytes: [UInt8]) -> (zeroWidth: Int, oneWidth: Int) {
         var lastState = State.getState(dependsOn: bytes[0])
         var zeroWidth = Int.max
         var oneWidth = Int.max

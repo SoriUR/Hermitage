@@ -13,6 +13,14 @@ class RootViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let params = [
+            "destRoomId": "219",
+            "destZoneId": "7",
+            "startDeviceId": "7_224_1"
+        ]
+        NetworkManager.shared.request(Constants.URL.calculatePath,
+                                      parameters: params)
+
         let chatVC = ChatViewController()
         chatVC.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 0)
         let navigVC = NavigationViewController()
