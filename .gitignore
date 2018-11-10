@@ -1,0 +1,63 @@
+## Build generated
+build/
+DerivedData/
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager dependencies.
+Packages/
+Package.pins
+Package.resolved
+.build/
+
+## CocoaPods
+Pods/
+*.xcworkspace
+*.lock
+
+## Carthage
+Carthage/Checkouts
+Carthage/Build
+Cartfile*
+
+## fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+## Code Injection
+iOSInjectionProject/
+
+## FirebaseApp service key
+firstep-ad5d3-firebase-adminsdk-su6b7-e6e1527dbf.json
+
+## MacOS folder attributes
+.DS_Store
+
+## Rswift
+*.generated.swift
