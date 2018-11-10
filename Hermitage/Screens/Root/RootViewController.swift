@@ -25,7 +25,7 @@ class RootViewController: UITabBarController {
 
         let chatVC = ChatViewController()
         chatVC.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 0)
-        let navigVC = NavigationViewController()
+        let navigVC = StartNavigationViewController()
         navigVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
         let profileVC = ProfileViewController()
         profileVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)

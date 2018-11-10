@@ -8,11 +8,37 @@
 
 import UIKit
 import AVKit
+import Pulsator
 
-class NavigationViewController: UIViewController {
+class StartNavigationViewController: UIViewController {
 
-    private lazy var model = NavigationModel()
+    // MARK: - Outlets and Actions
+
+    @IBOutlet private weak var pulsatorCenter: UIView!
+    @IBOutlet private weak var calculatePathBtn: RoundedButton!
+    @IBOutlet private weak var roomLabel: UILabel!
+    @IBOutlet private weak var textLabel: UILabel!
+
+    @IBAction private func calculatePath(_ sender: UIButton) {
+        print("show new screen")
+    }
+
+    private lazy var model: StartNavigationModel =  {
+        let model = StartNavigationModel()
+        model.delegate = self
+
+        return model
+    }()
     private lazy var captureSession = AVCaptureSession()
+    private lazy var pulsator: Pulsator = {
+        let pulsator = Pulsator()
+        pulsator.numPulse = 3
+        pulsator.radius = UIScreen.main.bounds.width / 2
+        pulsator.animationDuration = 6
+        pulsator.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1).cgColor
+
+        return pulsator
+    }()
 
     private lazy var device: AVCaptureDevice? = {
         guard let device = AVCaptureDevice.default(for: .video),
@@ -35,14 +61,16 @@ class NavigationViewController: UIViewController {
         return dataOutput
     }()
 
-    private var isDecoding = false
+    // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.convertBinaryString("")
 
         view.backgroundColor = .white
         self.title = "Navigation"
+
+        pulsatorCenter.layer.addSublayer(pulsator)
+        pulsator.start()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -57,9 +85,22 @@ class NavigationViewController: UIViewController {
         stopSession()
     }
 
+    // MARK: - Private Functions
+
+    private func handleLocation(_ location: Location) {
+        print("current room is \(location.room)")
+        DispatchQueue.main.async {
+            self.pulsator.stop()
+            self.calculatePathBtn.isHidden = false
+            self.roomLabel.isHidden = false
+            self.textLabel.isHidden = false
+            self.roomLabel.text = String(location.room)
+        }
+    }
+
 }
 
-extension NavigationViewController: CameraController {
+extension StartNavigationViewController: CameraController {
 
     func startSession() {
         guard let device = device, let input = try? AVCaptureDeviceInput(device: device) else {
@@ -86,15 +127,10 @@ extension NavigationViewController: CameraController {
     }
 }
 
-extension NavigationViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+extension StartNavigationViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput,
                        didOutput sampleBuffer: CMSampleBuffer,
                        from connection: AVCaptureConnection) {
-
-        guard !isDecoding else {
-            return
-        }
-        isDecoding = true
 
         let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!
 
@@ -107,18 +143,21 @@ extension NavigationViewController: AVCaptureVideoDataOutputSampleBufferDelegate
 
         var bytes = [UInt8]()
 
-        //todo: refactor
+        //todo: dont use just the first line, use the mid sum of all lines
         for i in 0...height {
             let luma = buffer[i * bytesPerRow + 0]
             bytes.append(luma)
         }
 
-        if let binaryString = model.decodeBytes(bytes) {
-            model.convertBinaryString(binaryString)
-        }
+        model.decode(bytes: bytes)
 
         CVPixelBufferUnlockBaseAddress(pixelBuffer, .readOnly)
-        isDecoding = false
     }
 }
 
+extension StartNavigationViewController: LightDecoderDelegate {
+    func didRecognizeLocation(_ location: Location) {
+        stopSession()
+        handleLocation(location)
+    }
+}
