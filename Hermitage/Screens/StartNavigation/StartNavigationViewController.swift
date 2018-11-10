@@ -143,13 +143,16 @@ extension StartNavigationViewController: AVCaptureVideoDataOutputSampleBufferDel
 
         var bytes = [UInt8]()
 
-        //todo: dont use just the first line, use the mid sum of all lines
-        for i in 0...height {
-            let luma = buffer[i * bytesPerRow + 0]
-            bytes.append(luma)
+        for column in 0..<height {
+            var rowLuma = 0
+            for row in 0..<bytesPerRow {
+                rowLuma += Int(buffer[column * bytesPerRow + row])
+            }
+            bytes.append(UInt8(rowLuma / bytesPerRow))
         }
 
         model.decode(bytes: bytes)
+
 
         CVPixelBufferUnlockBaseAddress(pixelBuffer, .readOnly)
     }
