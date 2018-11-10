@@ -9,19 +9,33 @@
 /* Begin PBXBuildFile section */
 		BF93041B2195AEA5009E3383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93041A2195AEA5009E3383 /* AppDelegate.swift */; };
 		BF93041D2195AEA5009E3383 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93041C2195AEA5009E3383 /* ViewController.swift */; };
-		BF9304202195AEA5009E3383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF93041E2195AEA5009E3383 /* Main.storyboard */; };
 		BF9304222195AEA7009E3383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9304212195AEA7009E3383 /* Assets.xcassets */; };
 		BF9304252195AEA7009E3383 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9304232195AEA7009E3383 /* LaunchScreen.storyboard */; };
+		BFF89CA42196FAFF00BE86C3 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CA22196FAFF00BE86C3 /* NavigationViewController.swift */; };
+		BFF89CA52196FAFF00BE86C3 /* NavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF89CA32196FAFF00BE86C3 /* NavigationViewController.xib */; };
+		BFF89CA82196FB0D00BE86C3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CA62196FB0D00BE86C3 /* ChatViewController.swift */; };
+		BFF89CA92196FB0D00BE86C3 /* CharViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF89CA72196FB0D00BE86C3 /* CharViewController.xib */; };
+		BFF89CAC2196FB2A00BE86C3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CAA2196FB2A00BE86C3 /* ProfileViewController.swift */; };
+		BFF89CAD2196FB2A00BE86C3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF89CAB2196FB2A00BE86C3 /* ProfileViewController.xib */; };
+		BFF89CB12196FB5F00BE86C3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CAF2196FB5F00BE86C3 /* RootViewController.swift */; };
+		BFF89CB22196FB5F00BE86C3 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF89CB02196FB5F00BE86C3 /* RootViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BF9304172195AEA5009E3383 /* Hermitage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermitage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF93041A2195AEA5009E3383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF93041C2195AEA5009E3383 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BF93041F2195AEA5009E3383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF9304212195AEA7009E3383 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF9304242195AEA7009E3383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF9304262195AEA7009E3383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFF89CA22196FAFF00BE86C3 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		BFF89CA32196FAFF00BE86C3 /* NavigationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationViewController.xib; sourceTree = "<group>"; };
+		BFF89CA62196FB0D00BE86C3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		BFF89CA72196FB0D00BE86C3 /* CharViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharViewController.xib; sourceTree = "<group>"; };
+		BFF89CAA2196FB2A00BE86C3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BFF89CAB2196FB2A00BE86C3 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		BFF89CAF2196FB5F00BE86C3 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		BFF89CB02196FB5F00BE86C3 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +68,61 @@
 		BF9304192195AEA5009E3383 /* Hermitage */ = {
 			isa = PBXGroup;
 			children = (
+				BFF89C9E2196FAAE00BE86C3 /* Screens */,
 				BF93041A2195AEA5009E3383 /* AppDelegate.swift */,
 				BF93041C2195AEA5009E3383 /* ViewController.swift */,
-				BF93041E2195AEA5009E3383 /* Main.storyboard */,
 				BF9304212195AEA7009E3383 /* Assets.xcassets */,
 				BF9304232195AEA7009E3383 /* LaunchScreen.storyboard */,
 				BF9304262195AEA7009E3383 /* Info.plist */,
 			);
 			path = Hermitage;
+			sourceTree = "<group>";
+		};
+		BFF89C9E2196FAAE00BE86C3 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				BFF89CAE2196FB4A00BE86C3 /* Root */,
+				BFF89CA12196FACB00BE86C3 /* Profile */,
+				BFF89CA02196FAC600BE86C3 /* Navigation */,
+				BFF89C9F2196FAC000BE86C3 /* Chat */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		BFF89C9F2196FAC000BE86C3 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				BFF89CA62196FB0D00BE86C3 /* ChatViewController.swift */,
+				BFF89CA72196FB0D00BE86C3 /* CharViewController.xib */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		BFF89CA02196FAC600BE86C3 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				BFF89CA22196FAFF00BE86C3 /* NavigationViewController.swift */,
+				BFF89CA32196FAFF00BE86C3 /* NavigationViewController.xib */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		BFF89CA12196FACB00BE86C3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BFF89CAA2196FB2A00BE86C3 /* ProfileViewController.swift */,
+				BFF89CAB2196FB2A00BE86C3 /* ProfileViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		BFF89CAE2196FB4A00BE86C3 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				BFF89CAF2196FB5F00BE86C3 /* RootViewController.swift */,
+				BFF89CB02196FB5F00BE86C3 /* RootViewController.xib */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +183,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFF89CAD2196FB2A00BE86C3 /* ProfileViewController.xib in Resources */,
+				BFF89CA52196FAFF00BE86C3 /* NavigationViewController.xib in Resources */,
 				BF9304252195AEA7009E3383 /* LaunchScreen.storyboard in Resources */,
+				BFF89CA92196FB0D00BE86C3 /* CharViewController.xib in Resources */,
+				BFF89CB22196FB5F00BE86C3 /* RootViewController.xib in Resources */,
 				BF9304222195AEA7009E3383 /* Assets.xcassets in Resources */,
-				BF9304202195AEA5009E3383 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +199,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFF89CA82196FB0D00BE86C3 /* ChatViewController.swift in Sources */,
+				BFF89CA42196FAFF00BE86C3 /* NavigationViewController.swift in Sources */,
+				BFF89CB12196FB5F00BE86C3 /* RootViewController.swift in Sources */,
+				BFF89CAC2196FB2A00BE86C3 /* ProfileViewController.swift in Sources */,
 				BF93041D2195AEA5009E3383 /* ViewController.swift in Sources */,
 				BF93041B2195AEA5009E3383 /* AppDelegate.swift in Sources */,
 			);
@@ -143,14 +211,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BF93041E2195AEA5009E3383 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF93041F2195AEA5009E3383 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BF9304232195AEA7009E3383 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

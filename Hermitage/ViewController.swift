@@ -4,7 +4,7 @@ import AVKit
 
 class ViewController: UIViewController {
 
-    var images = [UIImage]()
+    var isDecoding = false
 
     lazy var captureSession: AVCaptureSession = {
         let captureSession = AVCaptureSession()
@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         let device = AVCaptureDevice.default(for: .video)!
         try! device.lockForConfiguration()
 
-        let time = CMTime(value: 1, timescale: 4000)
+        let time = CMTime(value: 1, timescale: 6000)
 
         device.setExposureModeCustom(duration: time, iso: device.activeFormat.maxISO, completionHandler: nil)
 
@@ -42,7 +42,6 @@ class ViewController: UIViewController {
         let dataOutput = AVCaptureVideoDataOutput()
         dataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as String) : NSNumber(value: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange as UInt32)]
         dataOutput.alwaysDiscardsLateVideoFrames = true
-//        dataOutput.availableVideoPixelFormatTypes
         dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
         captureSession.addOutput(dataOutput)
 
@@ -70,17 +69,16 @@ class ViewController: UIViewController {
             return self != state
         }
 
-        static var border: UInt8 = UInt8.max / 2
+        static var border: Float = Float(UInt8.max / 2)
 
         static func getState(dependsOn byte: UInt8) -> State {
-            return byte > border ? .one : .zero
+            return Float(byte) > border ? .one : .zero
         }
     }
 
-    func decode(bytes: [UInt8]) {
+    func decode(bytes: [UInt8]) -> String? {
         var resultBinary: String = ""
-        //        State.border = (bytes.max()! - bytes.min()!) / 2
-        State.border = 0
+        State.border = Float(bytes.max()! - bytes.min()!) / 2
 
         let (zeroMinWidth, oneMinWidth) = decodeWidths(from: bytes)
         var lastState = State.getState(dependsOn: bytes[0])
@@ -98,8 +96,10 @@ class ViewController: UIViewController {
             guard currentState.isDifferent(to: lastState) else {
                 continue
             }
+            let etalonWidth = lastState == .zero ? zeroMinWidth : oneMinWidth
+            guard currentWidth >= etalonWidth else { continue }
 
-           let digitsNumber = function(currentWidth)
+            let digitsNumber = function(currentWidth)
             for _ in 0..<digitsNumber {
                 resultBinary.append(lastState.rawValue)
             }
@@ -113,7 +113,46 @@ class ViewController: UIViewController {
             resultBinary.append(lastState.rawValue)
         }
 
-        print(resultBinary)
+        return decodeBynaryString(resultBinary)
+    }
+
+    func decodeBynaryString(_ string: String) -> String? {
+        let indexes = string.indexes(of: "0110")
+        guard !indexes.isEmpty else {
+            return nil
+        }
+        for i in 0..<indexes.count - 1 {
+            var str = ""
+            let startIndex = indexes[i]
+            let endIndex = indexes[i+1]
+
+            let tempString = String(string[startIndex...endIndex])
+            for (index, char) in tempString.enumerated() {
+                if index < 5 { continue }
+                if index % 2 == 0 { continue }
+                if index > tempString.count - 3 { continue}
+                str += String(char)
+            }
+            if stringIsValid(str) {
+                return String(str.dropLast())
+            }
+        }
+
+        return nil
+    }
+
+    func stringIsValid(_ string: String) -> Bool {
+        guard string.count == 13 else { return false }
+        var oddCount = 0
+        for (index, char) in string.enumerated() {
+            if char == "1" {
+                oddCount += 1
+            }
+        }
+        guard oddCount % 2 == 0 else {
+            return false
+        }
+        return true
     }
 
     func decodeWidths(from bytes: [UInt8]) -> (zeroWidth: Int, oneWidth: Int) {
@@ -127,7 +166,7 @@ class ViewController: UIViewController {
             let currentState = State.getState(dependsOn: currentByte)
             currentWidth += 1
 
-            guard currentState.isDifferent(to: lastState) else {
+            guard currentState.isDifferent(to: lastState), currentWidth > 4 else {
                 continue
             }
 
@@ -135,7 +174,7 @@ class ViewController: UIViewController {
             case .zero:
                 zeroWidth = min(zeroWidth, currentWidth)
             case .one:
-                 oneWidth = min(zeroWidth, currentWidth)
+                oneWidth = min(zeroWidth, currentWidth)
             }
 
             lastState = currentState
@@ -150,8 +189,13 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput,
                        didOutput sampleBuffer: CMSampleBuffer,
                        from connection: AVCaptureConnection) {
-        let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!
 
+        guard !isDecoding else {
+            return
+        }
+        isDecoding = true
+
+        let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!
         let ciimage: CIImage = CIImage(cvPixelBuffer: pixelBuffer)
 
         DispatchQueue.main.async {
@@ -173,9 +217,12 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             bytes.append(luma)
         }
 
-        bytes = [0,1,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,1,0,0]
-        decode(bytes: bytes)
+        if let result = decode(bytes: bytes) {
+            print(result)
+        }
+
         CVPixelBufferUnlockBaseAddress(pixelBuffer, .readOnly)
+        isDecoding = false
     }
 }
 
@@ -189,5 +236,36 @@ extension CIImage {
         let uiimage = UIImage(cgImage: cgImage)
 
         return uiimage
+    }
+}
+
+extension StringProtocol where Index == String.Index {
+    func index(of string: Self, options: String.CompareOptions = []) -> Index? {
+        return range(of: string, options: options)?.lowerBound
+    }
+    func endIndex(of string: Self, options: String.CompareOptions = []) -> Index? {
+        return range(of: string, options: options)?.upperBound
+    }
+    func indexes(of string: Self, options: String.CompareOptions = []) -> [Index] {
+        var result: [Index] = []
+        var start = startIndex
+        while start < endIndex,
+            let range = self[start..<endIndex].range(of: string, options: options) {
+                result.append(range.lowerBound)
+                start = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return result
+    }
+    func ranges(of string: Self, options: String.CompareOptions = []) -> [Range<Index>] {
+        var result: [Range<Index>] = []
+        var start = startIndex
+        while start < endIndex,
+            let range = self[start..<endIndex].range(of: string, options: options) {
+                result.append(range)
+                start = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return result
     }
 }
