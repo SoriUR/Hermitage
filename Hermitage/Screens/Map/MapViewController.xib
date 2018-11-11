@@ -15,6 +15,7 @@
                 <outlet property="calculateBtn" destination="E19-Ld-9ae" id="4U5-UH-het"/>
                 <outlet property="currentRoomLabel" destination="LPP-gl-PUY" id="2SD-QS-1DC"/>
                 <outlet property="destinationRoomTextField" destination="5uE-Rt-Y14" id="2d2-TU-z5I"/>
+                <outlet property="mapImageView" destination="L16-TU-e3K" id="Rsl-JM-ppN"/>
                 <outlet property="view" destination="3Si-AW-13t" id="agY-sf-yCM"/>
             </connections>
         </placeholder>

@@ -13,3 +13,9 @@ struct Location: Equatable {
     let room: Int
     let device: Int
 }
+
+extension Location {
+    var combined: String {
+        return "\(zone)_\(room)_\(device)"
+    }
+}

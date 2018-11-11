@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FinalPathViewController" customModule="Hermitage" customModuleProvider="target">
+            <connections>
+                <outlet property="mapImageView" destination="64i-64-3Ny" id="mNB-CJ-4Lr"/>
+                <outlet property="pathColorView" destination="QrF-Sx-QeQ" id="UqQ-Kc-XJD"/>
+                <outlet property="view" destination="plY-W1-t47" id="YXG-Ga-uKy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="plY-W1-t47">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Map_hermitage_cl" translatesAutoresizingMaskIntoConstraints="NO" id="64i-64-3Ny">
+                    <rect key="frame" x="10" y="150" width="355" height="402"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdx-aK-DDZ" customClass="RoundedButton" customModule="Hermitage" customModuleProvider="target">
+                    <rect key="frame" x="37.5" y="582" width="300" height="50"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="KLG-T5-13N"/>
+                    </constraints>
+                    <state key="normal" title="Завершить маршрут">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="clearPath" destination="-1" eventType="touchUpInside" id="JwU-7u-QBj"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цвет вашего пути:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ab-Zx-kLD">
+                    <rect key="frame" x="76.5" y="85" width="147" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QrF-Sx-QeQ">
+                    <rect key="frame" x="233.5" y="70" width="50" height="50"/>
+                    <color key="backgroundColor" red="1" green="0.33528471970000001" blue="0.44380537479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Bd1-EC-Mz4"/>
+                        <constraint firstAttribute="height" constant="50" id="XlM-0u-3UY"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="64i-64-3Ny" firstAttribute="leading" secondItem="kFT-cI-8qI" secondAttribute="leading" constant="10" id="3q4-61-6LM"/>
+                <constraint firstItem="kFT-cI-8qI" firstAttribute="trailing" secondItem="64i-64-3Ny" secondAttribute="trailing" constant="10" id="AtQ-jH-cS3"/>
+                <constraint firstItem="QrF-Sx-QeQ" firstAttribute="leading" secondItem="0ab-Zx-kLD" secondAttribute="trailing" constant="10" id="B25-Pu-Dxm"/>
+                <constraint firstItem="QrF-Sx-QeQ" firstAttribute="top" secondItem="kFT-cI-8qI" secondAttribute="top" constant="50" id="FGt-IE-4sZ"/>
+                <constraint firstItem="0ab-Zx-kLD" firstAttribute="centerY" secondItem="QrF-Sx-QeQ" secondAttribute="centerY" id="FMI-Bt-zH1"/>
+                <constraint firstItem="jdx-aK-DDZ" firstAttribute="centerX" secondItem="kFT-cI-8qI" secondAttribute="centerX" id="Hr0-ib-qcO"/>
+                <constraint firstItem="0ab-Zx-kLD" firstAttribute="centerX" secondItem="kFT-cI-8qI" secondAttribute="centerX" multiplier="0.8" id="Llf-iM-jz9"/>
+                <constraint firstItem="kFT-cI-8qI" firstAttribute="bottom" secondItem="jdx-aK-DDZ" secondAttribute="bottom" constant="35" id="P4Z-pv-a2q"/>
+                <constraint firstItem="jdx-aK-DDZ" firstAttribute="width" secondItem="plY-W1-t47" secondAttribute="width" multiplier="0.8" id="X0f-wj-ifb"/>
+                <constraint firstItem="jdx-aK-DDZ" firstAttribute="top" secondItem="64i-64-3Ny" secondAttribute="bottom" constant="30" id="j9X-1F-MTU"/>
+                <constraint firstItem="64i-64-3Ny" firstAttribute="top" secondItem="QrF-Sx-QeQ" secondAttribute="bottom" constant="30" id="sbq-f8-vXV"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="kFT-cI-8qI"/>
+            <point key="canvasLocation" x="1087.2" y="35.532233883058474"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Map_hermitage_cl" width="259.20001220703125" height="244.80000305175781"/>
+    </resources>
+</document>

@@ -24,10 +24,7 @@ extension UIViewController {
             actInd.style = .whiteLarge
             actInd.startAnimating()
 
-
-
-
-             self.view.addSubview(loadingView)
+            self.view.addSubview(loadingView)
             loadingView.addSubview(actInd)
             constrain(loadingView, actInd, self.view) {
                 $0.center == $2.center

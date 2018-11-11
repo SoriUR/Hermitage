@@ -37,12 +37,16 @@ class NetworkManager {
                 let response = response as? HTTPURLResponse,
                 (200 ..< 300) ~= response.statusCode,
                 error == nil else {
-                    completion(nil, error)
+                    DispatchQueue.main.async {
+                        completion(nil, error)
+                    }
                     return
             }
 
             let responseJSON = try? JSONDecoder().decode(ServerResponseJSON.self, from: data)
-            completion(responseJSON, nil)
+            DispatchQueue.main.async {
+                completion(responseJSON, nil)
+            }
         }
         task.resume()
     }

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5BD20024F8D0910E001FF6FE /* Pods_Hermitage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6129F97D0A6DD23ED91605EE /* Pods_Hermitage.framework */; };
+		BF6DFBBD2197774900E7A226 /* RoomsPixels.json in Resources */ = {isa = PBXBuildFile; fileRef = BF6DFBBC2197774900E7A226 /* RoomsPixels.json */; };
+		BF6DFBC12197794700E7A226 /* FinalPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DFBBF2197794700E7A226 /* FinalPathViewController.swift */; };
+		BF6DFBC22197794700E7A226 /* FinalPathViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6DFBC02197794700E7A226 /* FinalPathViewController.xib */; };
+		BF6DFBC421977C9A00E7A226 /* UIViewController + showError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DFBC321977C9A00E7A226 /* UIViewController + showError.swift */; };
+		BF6DFBCC219793A400E7A226 /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DFBCB219793A400E7A226 /* RoomInfo.swift */; };
 		BF93041B2195AEA5009E3383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93041A2195AEA5009E3383 /* AppDelegate.swift */; };
 		BF9304222195AEA7009E3383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9304212195AEA7009E3383 /* Assets.xcassets */; };
 		BF9304252195AEA7009E3383 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9304232195AEA7009E3383 /* LaunchScreen.storyboard */; };
@@ -41,6 +46,11 @@
 		6129F97D0A6DD23ED91605EE /* Pods_Hermitage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hermitage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6799BA167727DC929D0EBF46 /* Pods-Hermitage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hermitage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hermitage/Pods-Hermitage.debug.xcconfig"; sourceTree = "<group>"; };
 		9BD72F21C2B890D05737B25A /* Pods-Hermitage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hermitage.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hermitage/Pods-Hermitage.release.xcconfig"; sourceTree = "<group>"; };
+		BF6DFBBC2197774900E7A226 /* RoomsPixels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RoomsPixels.json; sourceTree = "<group>"; };
+		BF6DFBBF2197794700E7A226 /* FinalPathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalPathViewController.swift; sourceTree = "<group>"; };
+		BF6DFBC02197794700E7A226 /* FinalPathViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinalPathViewController.xib; sourceTree = "<group>"; };
+		BF6DFBC321977C9A00E7A226 /* UIViewController + showError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + showError.swift"; sourceTree = "<group>"; };
+		BF6DFBCB219793A400E7A226 /* RoomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
 		BF9304172195AEA5009E3383 /* Hermitage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermitage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF93041A2195AEA5009E3383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF9304212195AEA7009E3383 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +111,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BF6DFBBE2197793000E7A226 /* FinalPath */ = {
+			isa = PBXGroup;
+			children = (
+				BF6DFBBF2197794700E7A226 /* FinalPathViewController.swift */,
+				BF6DFBC02197794700E7A226 /* FinalPathViewController.xib */,
+			);
+			path = FinalPath;
+			sourceTree = "<group>";
+		};
 		BF93040E2195AEA5009E3383 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +147,7 @@
 				BFF89CB92197070B00BE86C3 /* Protocols */,
 				BFF89C9E2196FAAE00BE86C3 /* Screens */,
 				BFF89CB5219706A400BE86C3 /* Extensions */,
+				BF6DFBBC2197774900E7A226 /* RoomsPixels.json */,
 				BFF89CC3219712AC00BE86C3 /* Constants.swift */,
 				BF93041A2195AEA5009E3383 /* AppDelegate.swift */,
 				BF9304212195AEA7009E3383 /* Assets.xcassets */,
@@ -144,6 +164,7 @@
 				BFF89CA12196FACB00BE86C3 /* Profile */,
 				BFF89CA02196FAC600BE86C3 /* StartNavigation */,
 				BFF89CDD2197608300BE86C3 /* Map */,
+				BF6DFBBE2197793000E7A226 /* FinalPath */,
 				BFF89C9F2196FAC000BE86C3 /* Chat */,
 			);
 			path = Screens;
@@ -229,6 +250,7 @@
 				BFF89CCE219734F600BE86C3 /* Location.swift */,
 				BFF89CD62197497900BE86C3 /* State.swift */,
 				BFF89CDB21974AF000BE86C3 /* Buffer.swift */,
+				BF6DFBCB219793A400E7A226 /* RoomInfo.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -262,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				BFF89CE5219772DA00BE86C3 /* UIViewController+showActivity.swift */,
+				BF6DFBC321977C9A00E7A226 /* UIViewController + showError.swift */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -331,7 +354,9 @@
 				BF9304252195AEA7009E3383 /* LaunchScreen.storyboard in Resources */,
 				BFF89CA92196FB0D00BE86C3 /* CharViewController.xib in Resources */,
 				BFF89CE3219760DF00BE86C3 /* MapViewController.xib in Resources */,
+				BF6DFBBD2197774900E7A226 /* RoomsPixels.json in Resources */,
 				BFF89CB22196FB5F00BE86C3 /* RootViewController.xib in Resources */,
+				BF6DFBC22197794700E7A226 /* FinalPathViewController.xib in Resources */,
 				BF9304222195AEA7009E3383 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,10 +417,12 @@
 				BFF89CC021970D2C00BE86C3 /* NetworkManager.swift in Sources */,
 				BFF89CA82196FB0D00BE86C3 /* ChatViewController.swift in Sources */,
 				BFF89CE2219760DF00BE86C3 /* MapViewController.swift in Sources */,
+				BF6DFBC421977C9A00E7A226 /* UIViewController + showError.swift in Sources */,
 				BFF89CA42196FAFF00BE86C3 /* StartNavigationViewController.swift in Sources */,
 				BFF89CCF219734F600BE86C3 /* Location.swift in Sources */,
 				BFF89CB12196FB5F00BE86C3 /* RootViewController.swift in Sources */,
 				BFF89CBD2197076100BE86C3 /* LightDecoder.swift in Sources */,
+				BF6DFBC12197794700E7A226 /* FinalPathViewController.swift in Sources */,
 				BFF89CAC2196FB2A00BE86C3 /* ProfileViewController.swift in Sources */,
 				BF93041B2195AEA5009E3383 /* AppDelegate.swift in Sources */,
 				BFF89CE6219772DA00BE86C3 /* UIViewController+showActivity.swift in Sources */,
@@ -404,6 +431,7 @@
 				BFF89CC721971DD600BE86C3 /* Path.swift in Sources */,
 				BFF89CC4219712AC00BE86C3 /* Constants.swift in Sources */,
 				BFF89CDC21974AF000BE86C3 /* Buffer.swift in Sources */,
+				BF6DFBCC219793A400E7A226 /* RoomInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

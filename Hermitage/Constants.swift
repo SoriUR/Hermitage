@@ -9,6 +9,16 @@
 import Foundation
 
 class Constants {
+
+    static let roomsInfo: [RoomInfo] = {
+        let fileManager = FileManager.default
+        let path = Bundle.main.path(forResource: "RoomsPixels", ofType: "json")!
+        fileManager.fileExists(atPath: path)
+        let data = try! NSData(contentsOfFile: path) as Data
+
+        return try! JSONDecoder().decode([RoomInfo].self, from: data)
+    }()
+
     enum URL {
         static let baseUrl = "http://95.213.28.151:44093"
 
