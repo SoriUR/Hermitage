@@ -42,7 +42,7 @@ class NetworkManager {
                     }
                     return
             }
-
+            
             let responseJSON = try? JSONDecoder().decode(ServerResponseJSON.self, from: data)
             DispatchQueue.main.async {
                 completion(responseJSON, nil)

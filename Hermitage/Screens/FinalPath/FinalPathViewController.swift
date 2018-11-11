@@ -33,7 +33,7 @@ class FinalPathViewController: UIViewController {
         }
     }
 
-    var json: ServerResponseJSON?
+    var json: Path?
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)

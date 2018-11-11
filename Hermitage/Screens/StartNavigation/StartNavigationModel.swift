@@ -10,7 +10,7 @@ import Foundation
 
 class StartNavigationModel: LightDecoder {
 
-    private let buffer: Buffer<Location> = Buffer(capacity: 6)
+    private let buffer: Buffer<Location> = Buffer(capacity: 2)
 
     var delegate: LightDecoderDelegate?
 

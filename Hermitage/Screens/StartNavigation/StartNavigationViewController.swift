@@ -15,6 +15,7 @@ class StartNavigationViewController: UIViewController {
 
     // MARK: - Outlets and Actions
 
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet private weak var pulsatorCenter: UIView!
 
     private lazy var model: StartNavigationModel =  {
@@ -106,9 +107,11 @@ extension StartNavigationViewController: CameraController {
 
         captureSession.commitConfiguration()
         captureSession.startRunning()
+        print("---Start---")
     }
 
-    func stopSession () {
+    func stopSession() {
+        print("---Stop---")
         captureSession.stopRunning()
 
         captureSession.inputs.forEach {
@@ -130,6 +133,12 @@ extension StartNavigationViewController: AVCaptureVideoDataOutputSampleBufferDel
 
         CVPixelBufferLockBaseAddress(pixelBuffer, .readOnly)
 
+//        let ciimage: CIImage = CIImage(cvPixelBuffer: pixelBuffer)
+//
+//        DispatchQueue.main.async {
+//            self.imageView.image = ciimage.noir
+//        }
+
         let baseAddress = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0)
         let bytesPerRow = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer, 0)
         let height = CVPixelBufferGetHeightOfPlane(pixelBuffer, 0)
@@ -137,12 +146,13 @@ extension StartNavigationViewController: AVCaptureVideoDataOutputSampleBufferDel
 
         var bytes = [UInt8]()
 
-        for column in 0..<height {
+        for column in 0..<height { // 1080
             var rowLuma = 0
-            for row in 0..<bytesPerRow {
+            for row in 0..<bytesPerRow { // 1920
                 rowLuma += Int(buffer[column * bytesPerRow + row])
             }
-            bytes.append(UInt8(rowLuma / bytesPerRow))
+            let mid = rowLuma / bytesPerRow
+            bytes.append(UInt8(mid))
         }
 
         model.decode(bytes: bytes)
@@ -152,10 +162,26 @@ extension StartNavigationViewController: AVCaptureVideoDataOutputSampleBufferDel
     }
 }
 
+extension CIImage {
+    var noir: UIImage {
+        let context = CIContext(options: nil)
+        let currentFilter = CIFilter(name: "CIPhotoEffectNoir")!
+        currentFilter.setValue(self, forKey: kCIInputImageKey)
+        let output = currentFilter.outputImage!
+        let cgImage = context.createCGImage(output, from: output.extent)!
+        let uiimage = UIImage(cgImage: cgImage, scale: 1, orientation: .right)
+
+        return uiimage
+    }
+}
+
+
 extension StartNavigationViewController: LightDecoderDelegate {
 
     func didRecognizeLocation(_ location: Location) {
         stopSession()
         handleLocation(location)
     }
+
+    
 }

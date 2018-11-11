@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartNavigationViewController" customModule="Hermitage" customModuleProvider="target">
             <connections>
+                <outlet property="imageView" destination="FGX-EB-nzG" id="QXA-bB-qSt"/>
                 <outlet property="pulsatorCenter" destination="BuF-yY-bxO" id="DQL-ZQ-zSw"/>
                 <outlet property="view" destination="5kt-ib-yMx" id="JhV-vj-cEI"/>
             </connections>
@@ -35,17 +36,27 @@
                         <constraint firstAttribute="width" constant="1" id="u2L-NM-YCN"/>
                     </constraints>
                 </view>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FGX-EB-nzG">
+                    <rect key="frame" x="60" y="194" width="200" height="200"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="Sln-3D-pZz"/>
+                        <constraint firstAttribute="height" constant="200" id="yTh-F8-hdb"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="FGX-EB-nzG" firstAttribute="centerY" secondItem="fDx-Px-zu5" secondAttribute="centerY" id="70d-6j-J9U"/>
                 <constraint firstItem="FON-Or-sso" firstAttribute="top" secondItem="fDx-Px-zu5" secondAttribute="top" constant="50" id="cdm-io-ogI"/>
                 <constraint firstItem="BuF-yY-bxO" firstAttribute="centerX" secondItem="fDx-Px-zu5" secondAttribute="centerX" id="ewV-la-aBb"/>
+                <constraint firstItem="FGX-EB-nzG" firstAttribute="centerX" secondItem="fDx-Px-zu5" secondAttribute="centerX" id="gZ8-47-4Pg"/>
                 <constraint firstItem="BuF-yY-bxO" firstAttribute="centerY" secondItem="fDx-Px-zu5" secondAttribute="centerY" id="iSC-rb-oTy"/>
                 <constraint firstItem="FON-Or-sso" firstAttribute="width" secondItem="5kt-ib-yMx" secondAttribute="width" multiplier="0.8" id="r6V-jG-qCs"/>
                 <constraint firstItem="FON-Or-sso" firstAttribute="centerX" secondItem="fDx-Px-zu5" secondAttribute="centerX" id="xki-3Q-1Yx"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fDx-Px-zu5"/>
-            <point key="canvasLocation" x="396" y="36"/>
+            <point key="canvasLocation" x="395.625" y="35.91549295774648"/>
         </view>
     </objects>
 </document>

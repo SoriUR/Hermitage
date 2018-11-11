@@ -53,7 +53,7 @@ class MapViewController: UIViewController {
                                         self.stopActivity()
                                         guard let error = error else {
                                             let pathVC = FinalPathViewController()
-                                            pathVC.json = json
+                                            pathVC.json = json?.result
                                             self.navigationController?.pushViewController(pathVC, animated: true)
                                             return
                                         }

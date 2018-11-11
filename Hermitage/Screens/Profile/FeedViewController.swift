@@ -1,5 +1,5 @@
 //
-//  CharViewController.swift
+//  ProfileViewController.swift
 //  Hermitage
 //
 //  Created by Юрий Сорокин on 10/11/2018.
@@ -9,12 +9,17 @@
 import UIKit
 import Cartography
 
-class ChatViewController: UIViewController {
+struct NewsInfo {
+    let image: UIImage
+    let message: String
+}
 
-    private let tempInfo: [PersonInfo] = [
-        PersonInfo(image: #imageLiteral(resourceName: "profile 3"), name :"Маша", message: "Привет, как дела?"),
-        PersonInfo(image: #imageLiteral(resourceName: "profile 1"), name :"Иван", message: "Идем на обед?"),
-        PersonInfo(image: #imageLiteral(resourceName: "profile 2"), name: "Инна", message: "Документы получила!")
+class FeedViewController: UIViewController {
+
+    private let tempInfo: [NewsInfo] = [
+        NewsInfo(image: #imageLiteral(resourceName: "prw-3"), message: "Achilles the Cat’s Prediction for Morocco v. Iran"),
+        NewsInfo(image: #imageLiteral(resourceName: "prw-2"), message: "Rembrandt’s Masterpieces Make a Triumphant Return to the Hermitage"),
+        NewsInfo(image: #imageLiteral(resourceName: "prw"), message: "General Meeting of the Union of Museums of Russia")
     ]
 
     private lazy var tableView: UITableView = {
@@ -29,11 +34,11 @@ class ChatViewController: UIViewController {
 
 
         view.backgroundColor = .white
-        self.title = "Chat"
+        self.title = "Feed/News"
 
 
-        let nib = UINib(nibName: CustomTableViewCell.xibName, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: CustomTableViewCell.reuseIdentifier)
+        let nib = UINib(nibName: FeedTableViewCell.xibName, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: FeedTableViewCell.reuseIdentifier)
 
         view.addSubview(tableView)
         constrain(tableView, view) {
@@ -46,15 +51,15 @@ class ChatViewController: UIViewController {
 
 }
 
-extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
+extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tempInfo.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.reuseIdentifier, for: indexPath)
 
-        guard let myCell = cell as? CustomTableViewCell else {
+        guard let myCell = cell as? FeedTableViewCell else {
             return cell
         }
 
@@ -65,19 +70,4 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
-
 }
-
-extension UIView {
-
-    class var xibName: String {
-        return typeName(of: self)
-    }
-
-}
-
-public func typeName<T>(of type: T.Type) -> String {
-    return String(describing: type)
-}
-

@@ -13,15 +13,19 @@
 		BF6DFBC22197794700E7A226 /* FinalPathViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6DFBC02197794700E7A226 /* FinalPathViewController.xib */; };
 		BF6DFBC421977C9A00E7A226 /* UIViewController + showError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DFBC321977C9A00E7A226 /* UIViewController + showError.swift */; };
 		BF6DFBCC219793A400E7A226 /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DFBCB219793A400E7A226 /* RoomInfo.swift */; };
+		BF6DFBCE2197EDD100E7A226 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DFBCD2197EDD100E7A226 /* CustomTableViewCell.swift */; };
+		BF6DFBD02197F04F00E7A226 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6DFBCF2197F04F00E7A226 /* CustomTableViewCell.xib */; };
+		BF6DFBD52197F64F00E7A226 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6DFBD42197F64F00E7A226 /* Assets.xcassets */; };
+		BF6DFBD82197F9A500E7A226 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DFBD62197F9A500E7A226 /* FeedTableViewCell.swift */; };
+		BF6DFBD92197F9A500E7A226 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6DFBD72197F9A500E7A226 /* FeedTableViewCell.xib */; };
 		BF93041B2195AEA5009E3383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93041A2195AEA5009E3383 /* AppDelegate.swift */; };
-		BF9304222195AEA7009E3383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9304212195AEA7009E3383 /* Assets.xcassets */; };
 		BF9304252195AEA7009E3383 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9304232195AEA7009E3383 /* LaunchScreen.storyboard */; };
 		BFF89CA42196FAFF00BE86C3 /* StartNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CA22196FAFF00BE86C3 /* StartNavigationViewController.swift */; };
 		BFF89CA52196FAFF00BE86C3 /* StartNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF89CA32196FAFF00BE86C3 /* StartNavigationViewController.xib */; };
 		BFF89CA82196FB0D00BE86C3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CA62196FB0D00BE86C3 /* ChatViewController.swift */; };
 		BFF89CA92196FB0D00BE86C3 /* CharViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF89CA72196FB0D00BE86C3 /* CharViewController.xib */; };
-		BFF89CAC2196FB2A00BE86C3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CAA2196FB2A00BE86C3 /* ProfileViewController.swift */; };
-		BFF89CAD2196FB2A00BE86C3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF89CAB2196FB2A00BE86C3 /* ProfileViewController.xib */; };
+		BFF89CAC2196FB2A00BE86C3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CAA2196FB2A00BE86C3 /* FeedViewController.swift */; };
+		BFF89CAD2196FB2A00BE86C3 /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF89CAB2196FB2A00BE86C3 /* FeedViewController.xib */; };
 		BFF89CB12196FB5F00BE86C3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CAF2196FB5F00BE86C3 /* RootViewController.swift */; };
 		BFF89CB22196FB5F00BE86C3 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF89CB02196FB5F00BE86C3 /* RootViewController.xib */; };
 		BFF89CB42197067A00BE86C3 /* StartNavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF89CB32197067A00BE86C3 /* StartNavigationModel.swift */; };
@@ -51,17 +55,21 @@
 		BF6DFBC02197794700E7A226 /* FinalPathViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinalPathViewController.xib; sourceTree = "<group>"; };
 		BF6DFBC321977C9A00E7A226 /* UIViewController + showError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + showError.swift"; sourceTree = "<group>"; };
 		BF6DFBCB219793A400E7A226 /* RoomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
+		BF6DFBCD2197EDD100E7A226 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		BF6DFBCF2197F04F00E7A226 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		BF6DFBD42197F64F00E7A226 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF6DFBD62197F9A500E7A226 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		BF6DFBD72197F9A500E7A226 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		BF9304172195AEA5009E3383 /* Hermitage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermitage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF93041A2195AEA5009E3383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF9304212195AEA7009E3383 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF9304242195AEA7009E3383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF9304262195AEA7009E3383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFF89CA22196FAFF00BE86C3 /* StartNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigationViewController.swift; sourceTree = "<group>"; };
 		BFF89CA32196FAFF00BE86C3 /* StartNavigationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartNavigationViewController.xib; sourceTree = "<group>"; };
 		BFF89CA62196FB0D00BE86C3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BFF89CA72196FB0D00BE86C3 /* CharViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharViewController.xib; sourceTree = "<group>"; };
-		BFF89CAA2196FB2A00BE86C3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		BFF89CAB2196FB2A00BE86C3 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		BFF89CAA2196FB2A00BE86C3 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		BFF89CAB2196FB2A00BE86C3 /* FeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
 		BFF89CAF2196FB5F00BE86C3 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		BFF89CB02196FB5F00BE86C3 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		BFF89CB32197067A00BE86C3 /* StartNavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigationModel.swift; sourceTree = "<group>"; };
@@ -147,10 +155,10 @@
 				BFF89CB92197070B00BE86C3 /* Protocols */,
 				BFF89C9E2196FAAE00BE86C3 /* Screens */,
 				BFF89CB5219706A400BE86C3 /* Extensions */,
+				BF6DFBD42197F64F00E7A226 /* Assets.xcassets */,
 				BF6DFBBC2197774900E7A226 /* RoomsPixels.json */,
 				BFF89CC3219712AC00BE86C3 /* Constants.swift */,
 				BF93041A2195AEA5009E3383 /* AppDelegate.swift */,
-				BF9304212195AEA7009E3383 /* Assets.xcassets */,
 				BF9304232195AEA7009E3383 /* LaunchScreen.storyboard */,
 				BF9304262195AEA7009E3383 /* Info.plist */,
 			);
@@ -175,6 +183,8 @@
 			children = (
 				BFF89CA62196FB0D00BE86C3 /* ChatViewController.swift */,
 				BFF89CA72196FB0D00BE86C3 /* CharViewController.xib */,
+				BF6DFBCD2197EDD100E7A226 /* CustomTableViewCell.swift */,
+				BF6DFBCF2197F04F00E7A226 /* CustomTableViewCell.xib */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -192,8 +202,10 @@
 		BFF89CA12196FACB00BE86C3 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				BFF89CAA2196FB2A00BE86C3 /* ProfileViewController.swift */,
-				BFF89CAB2196FB2A00BE86C3 /* ProfileViewController.xib */,
+				BFF89CAA2196FB2A00BE86C3 /* FeedViewController.swift */,
+				BFF89CAB2196FB2A00BE86C3 /* FeedViewController.xib */,
+				BF6DFBD62197F9A500E7A226 /* FeedTableViewCell.swift */,
+				BF6DFBD72197F9A500E7A226 /* FeedTableViewCell.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -349,15 +361,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFF89CAD2196FB2A00BE86C3 /* ProfileViewController.xib in Resources */,
+				BFF89CAD2196FB2A00BE86C3 /* FeedViewController.xib in Resources */,
 				BFF89CA52196FAFF00BE86C3 /* StartNavigationViewController.xib in Resources */,
 				BF9304252195AEA7009E3383 /* LaunchScreen.storyboard in Resources */,
 				BFF89CA92196FB0D00BE86C3 /* CharViewController.xib in Resources */,
+				BF6DFBD52197F64F00E7A226 /* Assets.xcassets in Resources */,
 				BFF89CE3219760DF00BE86C3 /* MapViewController.xib in Resources */,
 				BF6DFBBD2197774900E7A226 /* RoomsPixels.json in Resources */,
 				BFF89CB22196FB5F00BE86C3 /* RootViewController.xib in Resources */,
+				BF6DFBD92197F9A500E7A226 /* FeedTableViewCell.xib in Resources */,
 				BF6DFBC22197794700E7A226 /* FinalPathViewController.xib in Resources */,
-				BF9304222195AEA7009E3383 /* Assets.xcassets in Resources */,
+				BF6DFBD02197F04F00E7A226 /* CustomTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +427,7 @@
 				BFF89CBB2197074600BE86C3 /* CameraController.swift in Sources */,
 				BFF89CD221973FB900BE86C3 /* RoundedButton.swift in Sources */,
 				BFF89CC9219727C600BE86C3 /* StringProtocol+toDecimal.swift in Sources */,
+				BF6DFBD82197F9A500E7A226 /* FeedTableViewCell.swift in Sources */,
 				BFF89CB8219706C900BE86C3 /* StringProtocol+indexOf.swift in Sources */,
 				BFF89CC021970D2C00BE86C3 /* NetworkManager.swift in Sources */,
 				BFF89CA82196FB0D00BE86C3 /* ChatViewController.swift in Sources */,
@@ -423,10 +438,11 @@
 				BFF89CB12196FB5F00BE86C3 /* RootViewController.swift in Sources */,
 				BFF89CBD2197076100BE86C3 /* LightDecoder.swift in Sources */,
 				BF6DFBC12197794700E7A226 /* FinalPathViewController.swift in Sources */,
-				BFF89CAC2196FB2A00BE86C3 /* ProfileViewController.swift in Sources */,
+				BFF89CAC2196FB2A00BE86C3 /* FeedViewController.swift in Sources */,
 				BF93041B2195AEA5009E3383 /* AppDelegate.swift in Sources */,
 				BFF89CE6219772DA00BE86C3 /* UIViewController+showActivity.swift in Sources */,
 				BFF89CD72197497900BE86C3 /* State.swift in Sources */,
+				BF6DFBCE2197EDD100E7A226 /* CustomTableViewCell.swift in Sources */,
 				BFF89CB42197067A00BE86C3 /* StartNavigationModel.swift in Sources */,
 				BFF89CC721971DD600BE86C3 /* Path.swift in Sources */,
 				BFF89CC4219712AC00BE86C3 /* Constants.swift in Sources */,

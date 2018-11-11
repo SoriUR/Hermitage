@@ -8,11 +8,17 @@
 
 import Foundation
 
-struct ServerResponseJSON: Codable {
+struct Path: Codable {
     let color: String
     let destDevice: String
     let length: Int
     let optimal: Bool
     let pathId: String
     let devices: [String]
+}
+
+struct ServerResponseJSON: Codable {
+    let error: Bool
+    let errorDetails: String?
+    let result: Path?
 }
