@@ -14,13 +14,14 @@ class RootViewController: UITabBarController {
         super.viewDidLoad()
 
         let chatVC = ChatViewController()
-        chatVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "chat"), tag: 0)
+        chatVC.tabBarItem = UITabBarItem(title: "Чат", image: #imageLiteral(resourceName: "chat"), tag: 0)
         let navigVC = StartNavigationViewController()
-        navigVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "internt_web_technology-08-512"), tag: 1)
+        navigVC.tabBarItem = UITabBarItem(title: "Навигатор", image: #imageLiteral(resourceName: "internt_web_technology-08-512"), tag: 1)
         let profileVC = FeedViewController()
-        profileVC.tabBarItem = UITabBarItem(title: "", image: #imageLiteral(resourceName: "news_215276"), tag: 2)
+        profileVC.tabBarItem = UITabBarItem(title: "Новости", image: #imageLiteral(resourceName: "news_215276"), tag: 2)
         let viewControllerList = [ chatVC, navigVC, profileVC ]
         viewControllers = viewControllerList.map { UINavigationController(rootViewController: $0) }
+        selectedIndex = 1
     }
 
 }

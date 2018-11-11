@@ -62,7 +62,7 @@ class StartNavigationViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-        self.title = "Navigation"
+        self.title = "Навигатор"
 
         pulsatorCenter.layer.addSublayer(pulsator)
 

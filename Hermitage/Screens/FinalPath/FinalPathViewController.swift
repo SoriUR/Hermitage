@@ -45,7 +45,7 @@ class FinalPathViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-        self.title = "Path"
+        self.title = "Ваш маршрут"
 
         guard let json = json else {
             return
@@ -59,7 +59,7 @@ class FinalPathViewController: UIViewController {
 
         var devices = json.devices
         devices.append(json.destDevice)
-        mapImageView.image = DrawOnImage(startingImage: #imageLiteral(resourceName: "Map_hermitage_cl"), path: devices)
+        mapImageView.image = DrawOnImage(startingImage: #imageLiteral(resourceName: "Map_hermitage"), path: devices)
     }
 
     private func calculateColor(from string: String) -> UIColor {
@@ -83,17 +83,17 @@ class FinalPathViewController: UIViewController {
         context.drawPath(using: .fillStroke)
     }
 
-    private func drawArrow(_ path: String?, _ context: CGContext) {
-        // Draw start
-        guard let path = path, let (x, y) = calculateCoors(from: path) else { return }
-
-        context.move(to: CGPoint(x: x+20, y: y-20))
-        context.addLine(to: CGPoint(x: x, y: y))
-        context.addLine(to: CGPoint(x: x+20, y: y+20))
-        context.setLineWidth(10.0)
-        context.setStrokeColor(UIColor.black.cgColor)
-        context.strokePath()
-    }
+//    private func drawArrow(_ path: String?, _ context: CGContext) {
+//        // Draw start
+//        guard let path = path, let (x, y) = calculateCoors(from: path) else { return }
+//
+//        context.move(to: CGPoint(x: x+20, y: y-20))
+//        context.addLine(to: CGPoint(x: x, y: y))
+//        context.addLine(to: CGPoint(x: x+20, y: y+20))
+//        context.setLineWidth(10.0)
+//        context.setStrokeColor(UIColor.black.cgColor)
+//        context.strokePath()
+//    }
 
     func DrawOnImage(startingImage: UIImage, path: [String]) -> UIImage? {
         UIGraphicsBeginImageContext(startingImage.size)
@@ -117,11 +117,11 @@ class FinalPathViewController: UIViewController {
         // Draw Start
         drawPoint(path.first, context)
 
-        // Draw arrow
-        drawArrow(path.last, context)
+//         Draw arrow
+//        drawArrow(path.last, context)
 
-//        // Draw last
-//        drawPoint(path.last, context)
+        // Draw last
+        drawPoint(path.last, context)
 
         let myImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

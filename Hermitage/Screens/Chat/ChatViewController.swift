@@ -29,7 +29,7 @@ class ChatViewController: UIViewController {
 
 
         view.backgroundColor = .white
-        self.title = "Chat"
+        self.title = "Чат"
 
 
         let nib = UINib(nibName: CustomTableViewCell.xibName, bundle: nil)

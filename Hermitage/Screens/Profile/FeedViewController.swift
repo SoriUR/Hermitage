@@ -34,7 +34,7 @@ class FeedViewController: UIViewController {
 
 
         view.backgroundColor = .white
-        self.title = "Feed/News"
+        self.title = "Новости"
 
 
         let nib = UINib(nibName: FeedTableViewCell.xibName, bundle: nil)

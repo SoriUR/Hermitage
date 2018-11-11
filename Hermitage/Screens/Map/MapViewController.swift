@@ -26,7 +26,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-        self.title = "Map"
+        self.title = "Создание маршрута"
 
         currentRoomLabel.text = "Вы находитесь в комнате \(String(location.room))"
 
